@@ -2,6 +2,7 @@
 install: $(WS)_install doc gz ref $(OPAM)
 	$(MAKE) update
 update : $(WS)_update
+	$(OPAM) update
 ref    : $(RF)
 gz     : $(GZ)
 
