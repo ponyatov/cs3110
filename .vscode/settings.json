@@ -58,6 +58,18 @@
     "cmake.allowCommentsInPresetsFile" : true,
     "cmake.ignoreCMakeListsMissing"    : true,
 
+    // OCaml (cs3110)
+    "[ocaml]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [80],
+        "editor.formatOnSave": true
+    },
+    "[ocaml.interface]": {
+        "editor.tabSize": 2,
+        "editor.rulers": [80],
+        "editor.formatOnSave": true
+    },
+
     // MinGW/MSYS2
     "terminal.integrated.defaultProfile.windows": "UCRT64",
     "terminal.integrated.profiles.windows": {
