@@ -8,6 +8,8 @@ $(OFMT): $(OPAM) $(OCAMLC)
 	opam install -y ocamlformat && touch $@
 $(OLSP): $(OPAM) $(OCAMLC)
 	opam install -y ocaml-lsp-server && touch $@
+$(CAMLP5): $(OPAM) $(OCAMLC)
+	opam install -y camlp5 && touch $@
 
 $(OCAMLC): $(OPAM)
 	opam switch create $(OCAML_VER) && touch $@
