@@ -1,2 +1,4 @@
 (executable
- (name hello))
+ (name hello) ; the source file is main.ml
+ (public_name cs3110) ; this is required & makes it installable as "cs3110"
+ )
