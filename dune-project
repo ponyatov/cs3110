@@ -10,4 +10,7 @@
  (maintainers "Dmitry Ponyatov <dponyatov@gmail.com>")
  (bug_reports "dponyatov@gmail.com")
  (homepage    "https://github.com/ponyatov/cs3110")
- (license      MIT))
+ (license      MIT)
+ (depends
+  (ocaml (>= 5)) dune utop
+))

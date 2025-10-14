@@ -2,7 +2,7 @@
 install: $(WS)_install doc gz ref $(OPAM)
 	$(MAKE) update
 update : $(WS)_update
-	opam install -y . --deps-only
+	opam install -y . --deps-only && dune build
 ref    : $(RF)
 gz     : $(GZ)
 
