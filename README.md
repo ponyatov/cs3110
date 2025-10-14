@@ -1,4 +1,4 @@
-# `clarkson` CS3110
+# `cs3110`
 ## OCaml Programming: Correct + Efficient + Beautiful
 ### Michael R. Clarkson
 
