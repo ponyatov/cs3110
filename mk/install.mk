@@ -2,7 +2,7 @@
 install: $(WS)_install doc gz ref $(OPAM)
 	$(MAKE) update
 update : $(WS)_update
-	$(OPAM) update
+	opam install -y . --deps-only
 ref    : $(RF)
 gz     : $(GZ)
 
