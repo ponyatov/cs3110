@@ -8,7 +8,7 @@ description: """
 maintainer: ["Dmitry Ponyatov <dponyatov@gmail.com>"]
 authors: ["Michael R. Clarkson"]
 license: "MIT"
-tags: ["add topics" "to describe" "your" "project"]
+tags: ["OCaml" "programming language"]
 homepage: "https://github.com/ponyatov/cs3110"
 doc: "https://github.com/ponyatov/cs3110"
 bug-reports: "dponyatov@gmail.com"
@@ -32,4 +32,5 @@ build: [
     "@doc" {with-doc}
   ]
 ]
+dev-repo: "git+https://github.com/ponyatov/cs3110.git"
 x-maintenance-intent: ["(latest)"]

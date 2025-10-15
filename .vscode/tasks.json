@@ -40,6 +40,14 @@
             "group"          : {"kind": "build", "isDefault": true}
         },
         {
+            "label"          : "dune: gui",
+            "type"           : "shell",
+            "command"        : "dune exec gui",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
             "label"          : "AI: context",
             "type"           : "shell",
             "command"        : "make ai",

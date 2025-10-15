@@ -1,0 +1,6 @@
+(executable
+ (name gui)
+ (public_name gui)
+ (libraries lablqml)
+ (preprocess (pps ppx_qt))
+)
