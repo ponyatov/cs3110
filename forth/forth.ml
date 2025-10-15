@@ -3,11 +3,14 @@
 
 (** {1 VM high-level types} *)
 
-(* executable sequence addressing *)
-type addr = int
-
-(** vocabulary entry types *)
+(** data types: stack and vocabulary items *)
 type cell = Func of (unit -> unit) | Char of char | Int of int | Num of float
+
+(* compiled cell execution sequence *)
+type seq = cell list
+
+(* executable sequence addressing: seq[int] *)
+type addr = seq * int
 
 (** {1 Commands} *)
 
@@ -33,50 +36,70 @@ let pop () =
   try Stack.pop d with
   | Stack.Empty -> failwith "underflow"
 
-(** ( -- ) get top element *)
-let top = Stack.top d
+(** `( -- o )` get top element *)
+let top () =
+  try Stack.top d with
+  | Stack.Empty -> failwith "underflow"
 
-(* ( a -- a a ) *)
-let dup = Stack.dup d
+(** `( a -- a a )` duplicate top *)
+let dup () =
+  let a = pop () in
+  push a;
+  push a
 
-(* ( a -- ) *)
-let drop = Stack.drop d
+(** `( a -- )` drop top *)
+let drop () = ignore (pop ())
 
-(* ( a b -- b a ) *)
-let swap = Stack.swap d
+(** `( a b -- b a )` swap top two *)
+let swap () =
+  let b = pop () in
+  let a = pop () in
+  push b;
+  push a
 
-(* ( a b -- b ) *)
-let press = Stack.press d
+(** `( a b -- a b a )` copy second to top *)
+let over () =
+  let b = pop () in
+  let a = pop () in
+  push a;
+  push b;
+  push a
 
+(** `( a b c -- b c a )` rotate three items *)
+let rot () =
+  let c = pop () in
+  let b = pop () in
+  let a = pop () in
+  push b;
+  push c;
+  push a
 
-(* ( a b -- a b a ) *)
-      let over = Stack.over d
+(** `( a b c -- c a b )` reverse rotate three items *)
+let mrot () =
+  let c = pop () in
+  let b = pop () in
+  let a = pop () in
+  push c;
+  push a;
+  push b
 
-(* (a b c -- b c a) *)
-    let rot = Stack.rot d
-(* (a b c -- c a b ) *)
-    let mrot = Stack.mrot d
-(* ( ... n -- ... d[n] ) fetch n-th item counting from stack top *)
-    let pick = Stack.pick (Stack.pop) d
+(** `( ... -- n )` get stack depth *)
+let depth () = push (Int (Stack.length d))
 
-    (* ( ... -- d.sizeof ) get stack depth *)
-    let depth = Stack.depth d
-
-  (* vocabulary is an ordered list of string:cell pairs *)
+(** vocabulary *)
 let w =
   [
-    ( (("nop", nop), ("bye", bye)),
-      ("space", ' '),
-      ("cr", '\r'),
-      ("lf", '\n'),
-      ("pi", 3.1415),
-      ("dup",dup), 
-      ("drop",drop), 
-      ("swap",swap), 
-      ("over",over), 
-      ("rot",rot), 
-      ("-rot",mrot), 
-      ("pick",pick), 
-      ("depth",depth),
-      );
+    ("nop", Func nop);
+    ("bye", Func bye);
+    ("dup", Func dup);
+    ("drop", Func drop);
+    ("swap", Func swap);
+    ("over", Func over);
+    ("rot", Func rot);
+    ("-rot", Func mrot);
+    ("depth", Func depth);
+    ("space", Char ' ');
+    ("cr", Char '\r');
+    ("lf", Char '\n');
+    ("pi", Num 3.1415);
   ]
