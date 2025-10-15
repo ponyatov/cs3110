@@ -8,7 +8,9 @@ description: """
 maintainer: ["Dmitry Ponyatov <dponyatov@gmail.com>"]
 authors: ["Michael R. Clarkson"]
 license: "MIT"
+tags: ["add topics" "to describe" "your" "project"]
 homepage: "https://github.com/ponyatov/cs3110"
+doc: "https://github.com/ponyatov/cs3110"
 bug-reports: "dponyatov@gmail.com"
 depends: [
   "ocaml" {>= "5"}
