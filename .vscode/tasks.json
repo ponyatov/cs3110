@@ -24,6 +24,22 @@
             "group"          : {"kind": "build", "isDefault": true}
         },
         {
+            "label"          : "dune: exec",
+            "type"           : "shell",
+            "command"        : "dune exec ${workspaceFolderBasename}",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
+            "label"          : "dune: clean",
+            "type"           : "shell",
+            "command"        : "dune clean",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
             "label"          : "AI: context",
             "type"           : "shell",
             "command"        : "make ai",
