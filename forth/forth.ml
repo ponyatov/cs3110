@@ -1,13 +1,13 @@
 (** FORTH Virtual Machine in OCaml
     - declarative stack machine emulation *)
 
-(** {1 VM Memory} *)
+(** {1 VM high-level types} *)
 
-(** data stack *)
-let d = ref ([] : int list)
+(* executable sequence addressing *)
+type addr = int
 
-(** return stack (for nested calls & control structures compilation) *)
-let r = ref ([] : int list)
+(** vocabulary entry types *)
+type cell = Func of (unit -> unit) | Char of char | Int of int | Num of float
 
 (** {1 Commands} *)
 
@@ -16,3 +16,15 @@ let nop () = ()
 
 (** `BYE ( -- )` stop whole VM *)
 let bye () = exit 0
+
+(** {1 VM Memory} *)
+
+(** data stack *)
+let d = ref ([] : cell list)
+
+(** return stack (for nested calls & control structures compilation) *)
+let r = ref ([] : addr list)
+
+(* vocabulary is an ordered list of string:cell pairs *)
+let w =
+  [ ((("nop", nop), ("bye", bye)), ("cr", '\r'), ("lf", '\n'), ("pi", 3.1415)) ]

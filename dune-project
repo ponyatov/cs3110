@@ -17,6 +17,6 @@
  (tags
   (OCaml "programming language"))
  (depends
-  (ocaml (>= 5)) dune utop
+  (ocaml (>= 5)) dune utop odoc
  )
 )
