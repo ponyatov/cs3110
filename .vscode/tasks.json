@@ -24,6 +24,14 @@
             "group"          : {"kind": "build", "isDefault": true}
         },
         {
+            "label"          : "dune: watch",
+            "type"           : "shell",
+            "command"        : "dune build --watch",
+            "problemMatcher" : [],
+            "presentation"   : {"showReuseMessage": true, "focus": true, "reveal": "silent", "close": false},
+            "group"          : {"kind": "build", "isDefault": true}
+        },
+        {
             "label"          : "dune: exec",
             "type"           : "shell",
             "command"        : "dune exec ${workspaceFolderBasename}",

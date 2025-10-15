@@ -1,0 +1,4 @@
+(library
+ (name forth)
+ (public_name cs3110.forth)
+ (libraries))

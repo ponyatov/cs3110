@@ -1,4 +1,4 @@
-ocaml: $(UTOP) $(DUNE) $(OFMT) $(OLSP)
+ocaml: $(UTOP) $(DUNE) $(OFMT) $(OLSP) .ocamlformat
 
 $(UTOP): $(OPAM) $(OCAMLC)
 	opam install -y utop && touch $@
@@ -16,3 +16,6 @@ $(OCAMLC): $(OPAM)
 $(OPAM):
 	bash -c "sh <(curl -fsSL https://opam.ocaml.org/install.sh)"
 	opam init
+
+.ocamlformat:
+	echo "version = `ocamlformat --version`" > $@

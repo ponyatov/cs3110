@@ -20,6 +20,6 @@
         "rreverser.ragel",
         // OCaml
         "ocamllabs.ocaml-platform",
-        "theqtcompany.qt-qml",
+        // "theqtcompany.qt-qml",
     ]
 }
