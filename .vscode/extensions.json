@@ -4,6 +4,9 @@
         "ms-vscode.makefile-tools",
         "IBM.output-colorizer",
         "usernamehw.errorlens",
+        // AI
+        "AmazonWebServices.aws-toolkit-vscode",
+        "anthropic.claude-code",
         // formatters
         "xaver.clang-format",
         "esbenp.prettier-vscode",
